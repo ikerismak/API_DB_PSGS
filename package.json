@@ -1,0 +1,23 @@
+{
+  "name": "api_db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikerismak/API_DB_PSGS.git"
+  },
+  "author": "ikerismak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ikerismak/API_DB_PSGS/issues"
+  },
+  "homepage": "https://github.com/ikerismak/API_DB_PSGS#readme",
+  "devDependencies": {
+    "express": "^4.18.1",
+    "prisma": "^3.14.0"
+  }
+}
