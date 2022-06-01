@@ -75,6 +75,27 @@ const prisma = new PrismaClient();
               missionCommander: 'Diego',
             },
           });
+
+          const record2 = await prisma.newmodel.upsert({
+            where: { name: 'Master2' },
+            update: {},
+            create: {
+              name: 'Master2',
+              lang: 'french',
+              missionCommander: 'Iker',
+            },
+          });
+
+
+          const record3 = await prisma.newmodel.upsert({
+            where: { name: 'Master3' },
+            update: {},
+            create: {
+              name: 'Master3',
+              lang: 'German',
+              missionCommander: 'Jose',
+            },
+          });
     
   
       console.log('Create new register too');
@@ -85,3 +106,5 @@ const prisma = new PrismaClient();
       await prisma.$disconnect();
     }
   })();
+
+

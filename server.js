@@ -70,3 +70,56 @@ app.delete('/explorers/:id', async (req, res) => {
 	await prisma.explorer.delete({where: {id: id}});
 	return res.json({message: "Eliminado correctamente"});
 });
+
+
+
+//new model endpoints
+
+app.get('/newmodels', async (req,res) => {
+    const masters = await prisma.newmodel.findMany({});
+    res.json(masters)
+})
+
+
+app.get('/newmodels/:id',async (req,res) => {
+    const id = req.params.id;
+    const master = await prisma.newmodel.findUnique({where: {id: parseInt(id)}});
+    res.json(master);
+});
+
+
+app.post('/newmodel',async (req,res) =>{
+    const newmodel = {
+        name: req.body.name,
+        lang: req.body.lang,
+        missionCommander: req.body.missionCommander
+    }
+
+    const message ='master borned'
+    await prisma.newmodel.create({data: newmodel});
+    return res.json({message})
+});
+
+app.put('/newmodels/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+
+	await prisma.newmodel.update({
+		where: {
+			id: id
+		},
+		data: {
+			missionCommander: req.body.missionCommander,
+            hasCertification: req.body.hasCertification
+		}
+	})
+
+	return res.json({message: "Actualizado correctamente"});
+});
+
+
+app.delete('/newmodels/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+	await prisma.newmodel.delete({where: {id: id}});
+	return res.json({message: "Eliminado correctamente"});
+});
+
