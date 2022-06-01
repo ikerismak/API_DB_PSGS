@@ -14,3 +14,4 @@ API testing:
 
 - postman
 
+- CORS
