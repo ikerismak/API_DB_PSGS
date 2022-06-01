@@ -8,9 +8,9 @@ dependecies:
 
 database:
 
--postgresSQL
+- postgresSQL
 
 API testing:
 
--postman
+- postman
 
