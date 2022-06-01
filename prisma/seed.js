@@ -61,3 +61,27 @@ const prisma = new PrismaClient();
     await prisma.$disconnect();
   }
 })();
+
+
+(async function main() {
+    try {
+
+        const record1 = await prisma.newmodel.upsert({
+            where: { name: 'perro1' },
+            update: {},
+            create: {
+              name: 'perro1',
+              lang: 'english',
+              missionCommander: 'Diego',
+            },
+          });
+    
+  
+      console.log('Create new register too');
+    } catch(e) {
+      console.error(e);
+      process.exit(1);
+    } finally {
+      await prisma.$disconnect();
+    }
+  })();
